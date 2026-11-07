@@ -43,7 +43,7 @@
   };
 
   /* Logo mark — recreated from CMI.png (open C ring, rosé dot, fern + aqua leaves) */
-  /* Logo images — recolored to #3D7059 from the supplied cmmlife logo */
+  /* Logo images — recolored to #00573D from the supplied cmmlife logo */
   const logoMark = (c1 = '') => `<img src="assets/logo-cmmlife${(c1 === '#FFFFFF' || c1 === '#fff') ? '-light' : ''}.png" alt="" aria-hidden="true">`;
   const logoFull = (light = false) => `
     <a href="#/" class="logo" aria-label="CMMLIFE หน้าแรก">
@@ -640,7 +640,7 @@
         const orders = store.get('orders', []); orders.unshift(order); store.set('orders', orders); cart.clear(); ck.step = 1; store.set('ckstep', 1); go('#/order/' + id); };
     }
   };
-  const qrSvg = () => { let cells = ''; let seed = 7; for (let y = 0; y < 21; y++) for (let x = 0; x < 21; x++) { seed = (seed * 9301 + 49297) % 233280; const fin = (x < 7 && y < 7) || (x > 13 && y < 7) || (x < 7 && y > 13); const on = fin ? ((x % 6 === 0 || y % 6 === 0 || (x > 1 && x < 5 && y > 1 && y < 5)) && !(x === 7 || y === 7 || x === 13 || y === 13)) : seed / 233280 > .55; if (on && !(fin && (x === 6 || y === 6 || x === 14 || y === 14) && false)) cells += `<rect x="${x}" y="${y}" width="1" height="1"/>`; } return `<svg viewBox="-1 -1 23 23" fill="#3D7059" style="background:#fff;border-radius:8px;padding:6px;opacity:.35">${cells}</svg>`; };
+  const qrSvg = () => { let cells = ''; let seed = 7; for (let y = 0; y < 21; y++) for (let x = 0; x < 21; x++) { seed = (seed * 9301 + 49297) % 233280; const fin = (x < 7 && y < 7) || (x > 13 && y < 7) || (x < 7 && y > 13); const on = fin ? ((x % 6 === 0 || y % 6 === 0 || (x > 1 && x < 5 && y > 1 && y < 5)) && !(x === 7 || y === 7 || x === 13 || y === 13)) : seed / 233280 > .55; if (on && !(fin && (x === 6 || y === 6 || x === 14 || y === 14) && false)) cells += `<rect x="${x}" y="${y}" width="1" height="1"/>`; } return `<svg viewBox="-1 -1 23 23" fill="#00573D" style="background:#fff;border-radius:8px;padding:6px;opacity:.35">${cells}</svg>`; };
 
   /* ---- order confirmation */
   views.order = (params, id) => { const o = store.get('orders', []).find(x => x.id === id); if (!o) return views.notFound();
